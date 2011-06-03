@@ -37,6 +37,11 @@ sudo $pm update >> $log_file 2>&1 \
  && sudo $pm -y upgrade >> $log_file 2>&1
 echo "==> done..."
 
+# Install Apache2
+echo -e "\n=> Installing Apache2..."
+sudo $pm -y install apache2 >> $log_file 2>&1
+echo "==> done..."
+
 # Install build tools
 echo -e "\n=> Installing build tools..."
 sudo $pm -y install \
