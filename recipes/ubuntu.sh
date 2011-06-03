@@ -22,11 +22,12 @@ log_file=$8
 #echo "vars set: $ruby_version $ruby_version_string $ruby_source_url $ruby_source_tar_name $ruby_source_dir_name $whichRuby $railsready_path $log_file"
 
 #test if aptitude exists and default to using that if possible
-if command -v aptitude >/dev/null 2>&1 ; then
-  pm="aptitude"
-else
-  pm="apt-get"
-fi
+# if command -v aptitude >/dev/null 2>&1 ; then
+#   pm="aptitude"
+# else
+#   pm="apt-get"
+# fi
+pm="apt-get"
 
 echo -e "\nUsing $pm for package installation\n"
 
@@ -52,9 +53,9 @@ sudo $pm -y install libsqlite3-0 sqlite3 libsqlite3-dev libmysqlclient16-dev lib
 echo "==> done..."
 
 # Install imagemagick
-echo -e "\n=> Installing imagemagick (this may take awhile)..."
-sudo $pm -y install imagemagick libmagick9-dev >> $log_file 2>&1
-echo "==> done..."
+# echo -e "\n=> Installing imagemagick (this may take awhile)..."
+# sudo $pm -y install imagemagick libmagick9-dev >> $log_file 2>&1
+# echo "==> done..."
 
 # Install git-core
 echo -e "\n=> Installing git..."

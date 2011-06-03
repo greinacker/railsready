@@ -59,7 +59,7 @@ echo -e "\n"
 echo "What this script gets you:"
 echo " * An updated system"
 echo " * Ruby $ruby_version_string"
-echo " * Imagemagick"
+#echo " * Imagemagick"
 echo " * libs needed to run Rails (sqlite, mysql, etc)"
 echo " * Bundler, Passenger, and Rails gems"
 echo " * Git"
@@ -71,12 +71,13 @@ echo "Make sure you got it from https://github.com/joshfng/railsready"
 sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }
 
 # Ask if you want to build Ruby or install RVM
-echo -e "\n"
-echo "Build Ruby or install RVM?"
-echo "=> 1. Build from souce"
-echo "=> 2. Install RVM"
-echo -n "Select your Ruby type [1 or 2]? "
-read whichRuby
+# echo -e "\n"
+# echo "Build Ruby or install RVM?"
+# echo "=> 1. Build from souce"
+# echo "=> 2. Install RVM"
+# echo -n "Select your Ruby type [1 or 2]? "
+# read whichRuby
+whichRuby=1
 
 if [ $whichRuby -eq 1 ] ; then
   echo -e "\n\n!!! Set to build Ruby from source and install system wide !!! \n"
@@ -99,7 +100,7 @@ echo "==> done..."
 
 echo -e "\n=> Downloading and running recipe for $distro...\n"
 #Download the distro specific recipe and run it, passing along all the variables as args
-wget --no-check-certificate -O $railsready_path/src/$distro.sh https://github.com/joshfng/railsready/raw/master/recipes/$distro.sh && cd $railsready_path/src && bash $distro.sh $ruby_version $ruby_version_string $ruby_source_url $ruby_source_tar_name $ruby_source_dir_name $whichRuby $railsready_path $log_file
+wget --no-check-certificate -O $railsready_path/src/$distro.sh https://github.com/greinacker/railsready/raw/master/recipes/$distro.sh && cd $railsready_path/src && bash $distro.sh $ruby_version $ruby_version_string $ruby_source_url $ruby_source_tar_name $ruby_source_dir_name $whichRuby $railsready_path $log_file
 echo -e "\n==> done running $distro specific commands..."
 
 #now that all the distro specific packages are installed lets get Ruby
