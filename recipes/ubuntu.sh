@@ -40,6 +40,7 @@ echo "==> done..."
 # Install Apache2
 echo -e "\n=> Installing Apache2..."
 sudo $pm -y install apache2 >> $log_file 2>&1
+sudo $pm -y install apache2-prefork-dev >> $log_file 2>&1
 echo "==> done..."
 
 # Install build tools
