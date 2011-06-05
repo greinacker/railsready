@@ -43,6 +43,11 @@ sudo $pm -y install apache2 >> $log_file 2>&1
 sudo $pm -y install apache2-prefork-dev >> $log_file 2>&1
 echo "==> done..."
 
+# Install Exim4 for outbound email
+echo -e "\n=> Installing Exim4..."
+sudo $pm -y install exim4-daemon-light mailutils >> $log_file 2>&1
+echo "==> done..."
+
 # Install build tools
 echo -e "\n=> Installing build tools..."
 sudo $pm -y install \
